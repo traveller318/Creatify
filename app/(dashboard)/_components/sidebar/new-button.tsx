@@ -6,12 +6,11 @@ import { CreateOrganization } from "@clerk/nextjs";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Hint from "@/components/hint";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const NewButton = () => {
   return (
@@ -30,12 +29,13 @@ const NewButton = () => {
           </Hint>
         </div>
       </DialogTrigger>
-      <DialogContent
-        className="p-0 bg-transparent 
-        border-none max-w-[480px] flex justify-center"
-      >
-        <DialogTitle />
-        <CreateOrganization />
+      <DialogContent className="p-4 bg-transparent border-none max-w-[480px] ">
+        <VisuallyHidden>
+          <DialogTitle>Create Organization</DialogTitle>
+        </VisuallyHidden>
+        <div className="relative " style={{ top: '-8px', right: '-23px', }}>
+          <CreateOrganization />
+        </div>
       </DialogContent>
     </Dialog>
   );
