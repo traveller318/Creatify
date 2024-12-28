@@ -1,7 +1,6 @@
 import { api } from "@/convex/_generated/api";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Liveblocks } from "@liveblocks/node";
-import { log } from "console";
 
 import { ConvexHttpClient } from "convex/browser";
 
@@ -18,18 +17,18 @@ export async function POST(request: Request) {
     if (!authorization || !user) {
         return new Response("Unauthorized", { status: 403 });
     }
-    console.log("AUTH_INFO", {authorization, user});
+    // console.log("AUTH_INFO", {authorization, user});
 
     const { room } = await request.json();
     const board = await convex.query(api.board.get, { id: room });
 
-    console.log("BOARD", {
-        room,
-        board,
-        boardOrgId: board?.orgId,
-        userOrgId: authorization?.orgId,
+    // console.log("BOARD", {
+    //     room,
+    //     board,
+    //     boardOrgId: board?.orgId,
+    //     userOrgId: authorization?.orgId,
 
-    });
+    // });
     
 
     if (board?.orgId !== authorization.orgId) {
@@ -41,7 +40,7 @@ export async function POST(request: Request) {
         picture: user.imageUrl!,
     };
 
-    console.log("USER_INFO:", {userInfo});
+    // console.log("USER_INFO:", {userInfo});
     
     const session = liveblocks.prepareSession(user.id, {
         userInfo,
@@ -52,7 +51,7 @@ export async function POST(request: Request) {
     }
 
     const { status, body } = await session.authorize();
-    console.log({ status, body });
+    // console.log({ status, body });
     
     return new Response(body, { status });
 }
