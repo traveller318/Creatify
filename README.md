@@ -62,7 +62,6 @@ A powerful, real-time collaborative whiteboard platform that enables teams to id
 
 3. **Environment Setup**
    - Create `.env.local` in root directory
-   - Copy variables from `.env.example`
    - Fill in your configuration values
 
 4. **Clerk Configuration**
