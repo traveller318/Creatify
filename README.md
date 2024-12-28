@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Creatify - Real-time Collaborative Whiteboard
 
-## Getting Started
+A powerful, real-time collaborative whiteboard platform that enables teams to ideate, design, and plan together seamlessly. Built with modern web technologies, Creatify provides an infinite canvas for your creativity.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Core Functionality
+- 🤝 **Real-time Collaboration**: Work together with your team in real-time
+- 🎨 **Infinite Canvas**: Unlimited space for your ideas
+- 🔄 **Live Updates**: Instant synchronization across all users
+- 🎯 **Interactive UI**: Intuitive and responsive interface
+- 🔒 **Secure**: Built-in authentication and organization management
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Advanced Features
+- 🎨 **Advanced Color Picker**: 
+  - Infinite color combinations
+  - Debounced color selection for smooth experience
+  - Last used color memory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🔍 **Enhanced Selection Tool**:
+  - Precise selection mechanism
+  - Quick duplicate functionality
+  - Smart layer management
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 📤 **Export Capabilities**:
+  - Export boards as PNG
+  - High-quality image export
 
-## Learn More
+- 🎯 **User Experience**:
+  - Camera reset functionality
+  - Board creation limits (5 per organization)
+  - Improved search and favorites system
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: [Next.js](https://nextjs.org/) - React framework for production
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) - High-quality UI components
+- **Backend**: [Convex](https://www.convex.dev/) - Backend infrastructure
+- **Real-time Engine**: [Liveblocks](https://liveblocks.io/) - Collaboration features
+- **Authentication**: [Clerk](https://clerk.com/) - User management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Node.js (version 14 or higher)
+- npm
+- Git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/traveller318/Creatify.git
+   cd Creatify
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   - Create `.env.local` in root directory
+   - Copy variables from `.env.example`
+   - Fill in your configuration values
+
+4. **Clerk Configuration**
+   1. Enable Organization features
+   2. Create "convex" JWT Template
+   3. Configure Claims (`org_id` and `org_role`)
+   4. Update `auth.config.js` in /convex
+
+5. **Initialize Convex**
+   ```bash
+   npx convex dev
+   ```
+
+6. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+Visit [http://localhost:3000](http://localhost:3000) to see your application running.
+
+
+## 🌐 Deployment
+
+The live version is deployed on Vercel: [Visit Creatify](https://creatify-seven.vercel.app)
+
+
+
+---
+
+Built with ❤️ using Next.js, Convex, and Liveblocks
